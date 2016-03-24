@@ -1,6 +1,7 @@
 package com.app.hugh.androidphonemanager;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -34,6 +35,7 @@ import Utils.HttpUtils;
 
 public class SplashActivity extends ActionBarActivity {
     final  int GET_OK = 1;
+    private ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,20 +149,32 @@ public class SplashActivity extends ActionBarActivity {
         }
     };
 
+    /*实现msgHandler里面的下载NewResponseHandler*/
 
-    class NewResponseHandler extends AsyncHttpResponseHandler//实现msgHandler里面的下载NewResponseHandler
+    class NewResponseHandler extends AsyncHttpResponseHandler
     {
-
         File file=null;
         @Override
         public void onSuccess(int i, Header[] headers, byte[] bytes) {
+
+            /*添加进度条*/
+            pd = new ProgressDialog(SplashActivity.this);
+            pd.setMessage("正在下载");
+            pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);// 设置水平进度条
+            pd.setCancelable(true);// 设置是否可以通过点击Back键取消
+            pd.setCanceledOnTouchOutside(false);
+            pd.setProgress(i);
+            pd.show();
+
             file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/anzhistore.apk");
-            try
-            {
+            try {
                 FileOutputStream fos = new FileOutputStream(file);
                 fos.write(bytes);
                 fos.close();
-                installApk();//此处调用installApk()方法安装下载的新版的应用
+                /*此处取消进度条*/
+                pd.cancel();
+                /*此处调用installApk()方法安装下载的新版的应用*/
+                installApk();
             }
             catch (FileNotFoundException e)
             {
@@ -178,7 +192,8 @@ public class SplashActivity extends ActionBarActivity {
             Toast.makeText(SplashActivity.this, "连接服务器失败", Toast.LENGTH_SHORT).show();
         }
 
-        private void installApk() //安装下载好的
+        /*此方法用于安装下载好的新版本应用*/
+        private void installApk()
         {
             if(file!=null)
             {
