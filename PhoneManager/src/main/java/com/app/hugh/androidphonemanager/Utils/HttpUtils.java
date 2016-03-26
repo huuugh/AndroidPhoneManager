@@ -1,4 +1,4 @@
-package Utils;
+package com.app.hugh.androidphonemanager.Utils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

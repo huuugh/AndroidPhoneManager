@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:SettingItem="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.app.hugh.androidphonemanager.Activity.SettingCenterActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设置中心"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:padding="10dp"
+        android:background="#009FE8"
+        android:id="@+id/tv_setting_pagetitle"/>
+
+    <com.app.hugh.androidphonemanager.CustomizeView.SettingItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_setting_pagetitle"
+        SettingItem:ItemName="自动更新"
+        SettingItem:ItemState_ON="开启自动更新"
+        SettingItem:ItemState_OFF="关闭自动更新"
+        SettingItem:Key="AutoUpdate"
+        />
+
+    <com.app.hugh.androidphonemanager.CustomizeView.SettingItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_setting_pagetitle"
+        SettingItem:ItemName="显示号码归属地"
+        SettingItem:ItemState_ON="开启显示"
+        SettingItem:ItemState_OFF="关闭显示"
+        SettingItem:Key="GetLocation"
+        />
+</LinearLayout>

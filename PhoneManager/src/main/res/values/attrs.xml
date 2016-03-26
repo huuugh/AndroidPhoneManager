@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SettingItem">
+    <attr name="ItemName" format="string"/>
+    <attr name="ItemState_OFF" format="string"/>
+    <attr name="ItemState_ON" format="string"/>
+    <attr name="Key" format="string"/>
+    </declare-styleable>
+</resources>
