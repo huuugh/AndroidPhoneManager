@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="为了您的手机安全，请先设置密码"
+        android:textSize="20sp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="#CCC"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="在此设置密码"
+        android:gravity="center"
+        android:id="@+id/et_dialog_setpsw"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确认密码"
+        android:textSize="20sp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="#CCC"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="再次输入密码"
+        android:gravity="center"
+        android:id="@+id/et_dialog_cofirmsetpsw"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="确认"
+            android:id="@+id/bt_dialog_confirmset"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="取消"
+            android:id="@+id/bt_dialog_cancelset"/>
+    </LinearLayout>
+
+</LinearLayout>

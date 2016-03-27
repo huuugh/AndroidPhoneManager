@@ -43,6 +43,7 @@ public class SplashActivity extends ActionBarActivity {
     final  int GET_OK = 1;
     private ProgressDialog pd;
     private TextView tv_splash_version;
+    private String path;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,8 @@ public class SplashActivity extends ActionBarActivity {
         /*隐藏ActionBar*/
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+        /*取出服务器地址*/
+        path=DataShareApplication.path;
 
         tv_splash_version = (TextView) findViewById(R.id.tv_splash_version);
         getCurrentVersion();
@@ -99,7 +102,7 @@ public class SplashActivity extends ActionBarActivity {
             e.printStackTrace();
         }
         /*此处生设置在Splash页面显示版本号*/
-        tv_splash_version.setText("Version: "+CurrentVersionCode+".0");
+        tv_splash_version.setText("ver: "+CurrentVersionCode+".0");
         return CurrentVersionCode;
     }
 
@@ -111,7 +114,7 @@ public class SplashActivity extends ActionBarActivity {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("http://192.168.3.69/Android_NetWork/newversion.json");
+                    URL url = new URL(path+"/newversion.json");
                     HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
                     urlConn.setRequestMethod("GET");
                     urlConn.setConnectTimeout(5000);
@@ -203,7 +206,7 @@ public class SplashActivity extends ActionBarActivity {
                                         //开始下载
                                         Toast.makeText(SplashActivity.this, "开始下载", Toast.LENGTH_SHORT).show();
                                         AsyncHttpClient client = new AsyncHttpClient();
-                                        client.get("http://192.168.3.69/Android_NetWork"+info[2],new NewResponseHandler());
+                                        client.get(path+info[2],new NewResponseHandler());
                                     }
                                 })
                                 .setNegativeButton("下次再说", new DialogInterface.OnClickListener()
