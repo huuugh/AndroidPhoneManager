@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.app.hugh.androidphonemanager.Activity.PhoneBakActivity">
+
+    <TextView
+        style="@style/pagetitle"
+        android:text="欢迎来到手机防盗"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="手机防盗有如下功能："
+        android:textSize="20sp"
+        android:padding="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SIM卡变更报警"
+        android:textSize="20sp"
+        android:drawableLeft="@android:drawable/star_big_on"
+        android:gravity="center_vertical"
+        android:padding="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GPS追踪"
+        android:textSize="20sp"
+        android:drawableLeft="@android:drawable/star_big_on"
+        android:gravity="center_vertical"
+        android:padding="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="远程销毁数据"
+        android:textSize="20sp"
+        android:drawableLeft="@android:drawable/star_big_on"
+        android:gravity="center_vertical"
+        android:padding="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="远程锁屏"
+        android:textSize="20sp"
+        android:drawableLeft="@android:drawable/star_big_on"
+        android:gravity="center_vertical"
+        android:padding="10dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:padding="15dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/presence_online"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/presence_offline"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/presence_offline"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/presence_offline"
+                />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="进入设置向导"
+            android:background="@drawable/btbg_selecter"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            android:onClick="next"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -21,7 +21,10 @@
         </activity>
         <activity android:name=".Activity.HomeActivity" />
         <activity android:name=".Activity.SettingCenterActivity" />
-        <activity android:name=".Activity.PhoneBakActivity"></activity>
+        <activity android:name=".Activity.PhoneBakActivity" />
+        <activity android:name=".Activity.BindSIMActivity" />
+        <activity android:name=".Activity.SetSafeNumActivity" />
+        <activity android:name=".Activity.SetSuccessActivity"></activity>
     </application>
 
 </manifest>

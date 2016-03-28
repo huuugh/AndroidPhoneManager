@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:SetingItem="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.app.hugh.androidphonemanager.Activity.SetSuccessActivity">
+
+    <TextView
+        android:text="设置完成"
+        style="@style/pagetitle"
+        android:padding="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设置完毕，请选择开启手机防盗\n点击开启管理员权限\n（开启后可以使用远程锁屏、远程清空数据）"
+        android:padding="10dp"
+        android:textSize="20sp"/>
+
+    <com.app.hugh.androidphonemanager.CustomizeView.SettingItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        SetingItem:ItemName="手机防盗功能"
+        SetingItem:ItemState_ON="手机防盗已开启"
+        SetingItem:ItemState_OFF="手机防盗未开启"
+        SetingItem:Key="anti_thief"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/presence_offline"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/presence_offline"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/presence_online"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/presence_offline"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置完成"
+            android:background="@drawable/btbg_selecter"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:textSize="20sp"
+            android:onClick="setsuccess"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上一步"
+            android:background="@drawable/btbg_selecter"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:textSize="20sp"
+            android:onClick="toprevious"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"/>
+    </RelativeLayout>
+</LinearLayout>
