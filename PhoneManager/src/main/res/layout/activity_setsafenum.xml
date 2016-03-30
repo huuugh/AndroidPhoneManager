@@ -29,70 +29,71 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="从通讯录选择一个号码"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:id="@+id/bt_setsafenum_selectnum"/>
 
     <RelativeLayout
-        android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <LinearLayout
         android:layout_height="wrap_content"
-        >
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:padding="15dp">
 
-        <LinearLayout
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:orientation="horizontal"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:padding="15dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/presence_offline"
-                />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/presence_offline"
-                />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/presence_online"
-                />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/presence_offline"
-                />
-
-        </LinearLayout>
-
-        <Button
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="下一步"
-            android:background="@drawable/btbg_selecter"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:textSize="20sp"
-            android:onClick="tonext"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:src="@android:drawable/presence_offline"
+            />
 
-        <Button
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="上一步"
-            android:background="@drawable/btbg_selecter"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:textSize="20sp"
-            android:onClick="toprevious"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="10dp"/>
-    </RelativeLayout>
+            android:src="@android:drawable/presence_offline"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_online"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_offline"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="下一步"
+        android:background="@drawable/btbg_selecter"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:textSize="20sp"
+        android:onClick="gotonext"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="上一步"
+        android:background="@drawable/btbg_selecter"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:textSize="20sp"
+        android:onClick="gotoprevious"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"/>
+</RelativeLayout>
 
 </LinearLayout>

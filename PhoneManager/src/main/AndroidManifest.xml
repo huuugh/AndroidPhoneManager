@@ -4,6 +4,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:name=".Application.DataShareApplication"
@@ -20,11 +26,58 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.HomeActivity" />
-        <activity android:name=".Activity.SettingCenterActivity" />
-        <activity android:name=".Activity.PhoneBakActivity" />
-        <activity android:name=".Activity.BindSIMActivity" />
-        <activity android:name=".Activity.SetSafeNumActivity" />
-        <activity android:name=".Activity.SetSuccessActivity"></activity>
+        <activity
+            android:name=".Activity.SettingCenterActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".Activity.PhoneBakActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".Activity.BindSIMActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".Activity.SetSafeNumActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".Activity.SetSuccessActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".Activity.SelectNumActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".Activity.SafeinfoActivity"
+            android:launchMode="singleTask"></activity>
+
+        <receiver android:name=".Receiver.SMS_Receiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".Receiver.StartUpReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".Service.GetLocation" />
+
+        <!-- 为了获取设备权限 -->
+        <!-- name为一个receiver类，description和lable在value里面定义，resource在res的xml文件夹下 -->
+        <receiver
+            android:name=".Receiver.DeviceAdminReceiver4Manager"
+            android:description="@string/sample_device_admin_description"
+            android:label="@string/sample_device_admin"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/adminsample" />
+
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".Activity.BaseActivity"></activity>
     </application>
 
 </manifest>

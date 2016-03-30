@@ -96,7 +96,7 @@
             android:background="@drawable/btbg_selecter"
             android:layout_centerInParent="true"
             android:textSize="20sp"
-            android:onClick="next"
+            android:onClick="gotonext"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"/>
     </RelativeLayout>
