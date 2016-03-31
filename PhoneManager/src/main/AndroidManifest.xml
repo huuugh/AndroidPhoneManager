@@ -46,7 +46,7 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".Activity.SafeinfoActivity"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask" />
 
         <receiver android:name=".Receiver.SMS_Receiver">
             <intent-filter>
@@ -77,7 +77,16 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".Activity.BaseActivity"></activity>
+        <activity android:name=".Activity.BaseActivity" />
+        <activity android:name=".Activity.AdvanceToolsActivity" />
+        <activity android:name=".Activity.NumberLocationActivity" />
+
+        <service
+            android:name=".Service.NumberLocationService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".Activity.SetNumLocationShowActivity"></activity>
     </application>
 
 </manifest>

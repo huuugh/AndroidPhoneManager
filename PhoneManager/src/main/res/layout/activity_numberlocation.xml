@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.app.hugh.androidphonemanager.Activity.NumberLocationActivity">
+
+    <TextView
+        style="@style/pagetitle"
+        android:text="号码归属地查询"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入要查询的号码"
+        android:id="@+id/et_numlocation_input"
+        android:padding="10dp"
+        android:textSize="20sp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查询"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:onClick="query"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:id="@+id/tv_numlocation_output"/>
+</LinearLayout>

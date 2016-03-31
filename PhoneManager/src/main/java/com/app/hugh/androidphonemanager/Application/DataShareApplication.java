@@ -23,6 +23,8 @@ public class DataShareApplication extends Application
         /*初始化路径*/
         path="http://192.168.3.69/Android_NetWork";
     }
+
+    /*存取字符串参数的方法*/
     public static void savedata(String key,String value)
     {
         edit = sp.edit();
@@ -35,4 +37,19 @@ public class DataShareApplication extends Application
         String value = sp.getString(key, null);
         return value;
     }
+    /*存取布尔型参数的方法*/
+    public static void savebooleandata(String key,Boolean value)
+    {
+        edit = sp.edit();
+        edit.putBoolean(key,value);
+        edit.commit();
+    }
+
+    public static Boolean getbooleandata(String key)
+    {
+        Boolean value = sp.getBoolean(key, true);
+        return value;
+    }
+
+
 }

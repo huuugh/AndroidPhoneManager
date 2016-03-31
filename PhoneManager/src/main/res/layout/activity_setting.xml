@@ -26,7 +26,7 @@
         SettingItem:ItemState_ON="开启自动更新"
         SettingItem:ItemState_OFF="关闭自动更新"
         SettingItem:Key="AutoUpdate"
-        />
+        android:layout_marginBottom="1dp"/>
 
     <com.app.hugh.androidphonemanager.CustomizeView.SettingItem
         android:layout_width="match_parent"
@@ -35,6 +35,15 @@
         SettingItem:ItemName="显示号码归属地"
         SettingItem:ItemState_ON="开启显示"
         SettingItem:ItemState_OFF="关闭显示"
-        SettingItem:Key="GetLocation"
-        />
+        SettingItem:Key="ShowNumLocation"
+        android:id="@+id/item_setting_numlocation"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="1dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设置号码归属地的显示位置"
+        android:textSize="20sp"
+        android:onClick="settoastlocation"/>
 </LinearLayout>

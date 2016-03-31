@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 
 import com.app.hugh.androidphonemanager.Application.DataShareApplication;
 import com.app.hugh.androidphonemanager.R;
+import com.app.hugh.androidphonemanager.Service.NumberLocationService;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
@@ -46,7 +48,8 @@ public class SplashActivity extends ActionBarActivity {
     private String path;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         /*隐藏ActionBar*/
@@ -65,6 +68,32 @@ public class SplashActivity extends ActionBarActivity {
         else
         {
             waitmoment();
+        }
+        copydb();
+    }
+    /*将assets目录下的数据库复制到data/data/pakagename/目录下*/
+    private void copydb() {
+        try {
+
+            File db=new File("data/data/"+getPackageName()+"/location.db");
+            if (db.exists())
+                return;
+
+            final AssetManager assets = getAssets();
+            final InputStream open = assets.open("naddress.db");
+            FileOutputStream fos = new FileOutputStream(db);
+
+            byte[] bytes= new byte[1024];
+            int len=-1;
+            while((len=open.read(bytes,0,1024))!=-1){
+                fos.write(bytes,0,len);
+            }
+            fos.close();
+            open.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.RelativeLayout;
@@ -84,7 +85,7 @@ public class SettingItem extends RelativeLayout {
             {
                 tv_setting_state.setText(itemState_off);
                 cb_setting_switch.setChecked(false);
-                edit.putBoolean(key,false);
+                edit.putBoolean(key, false);
                 edit.commit();
             }
             else

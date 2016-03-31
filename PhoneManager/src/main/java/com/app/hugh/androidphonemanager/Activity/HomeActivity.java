@@ -130,11 +130,10 @@ public class HomeActivity extends ActionBarActivity {
                     break;
                 case 6:
                     Toast.makeText(HomeActivity.this, "缓存清理", Toast.LENGTH_SHORT).show();
-
                     break;
                 case 7:
                     Toast.makeText(HomeActivity.this, "高级工具", Toast.LENGTH_SHORT).show();
-
+                    startActivity(new Intent(HomeActivity.this,AdvanceToolsActivity.class));
                     break;
                 case 8:
                     startActivity(new Intent(HomeActivity.this,SettingCenterActivity.class));
