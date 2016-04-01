@@ -86,7 +86,8 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".Activity.SetNumLocationShowActivity"></activity>
+        <activity android:name=".Activity.SetNumLocationShowActivity" />
+        <activity android:name=".Activity.AppManagerActivity"></activity>
     </application>
 
 </manifest>

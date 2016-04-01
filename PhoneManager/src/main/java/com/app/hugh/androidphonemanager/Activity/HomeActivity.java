@@ -114,7 +114,7 @@ public class HomeActivity extends ActionBarActivity {
                     break;
                 case 2:
                     Toast.makeText(HomeActivity.this, "软件管理", Toast.LENGTH_SHORT).show();
-
+                    startActivity(new Intent(HomeActivity.this,AppManagerActivity.class));
                     break;
                 case 3:
                     Toast.makeText(HomeActivity.this, "进程管理", Toast.LENGTH_SHORT).show();

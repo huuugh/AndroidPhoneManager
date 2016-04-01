@@ -1,5 +1,6 @@
 package com.app.hugh.androidphonemanager.Activity;
 
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 import com.app.hugh.androidphonemanager.Application.DataShareApplication;
 import com.app.hugh.androidphonemanager.R;
 import com.app.hugh.androidphonemanager.Service.NumberLocationService;
+
+import java.util.List;
 
 public class SettingCenterActivity extends ActionBarActivity {
 
@@ -50,10 +53,24 @@ public class SettingCenterActivity extends ActionBarActivity {
         });
     }
 
+    /*根据服务是否在运行来显示CheckBox的状态*/
     @Override
     protected void onResume() {
-
         super.onResume();
+        ActivityManager mAM = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        List<ActivityManager.RunningServiceInfo> runningServices = mAM.getRunningServices(100);
+        for (ActivityManager.RunningServiceInfo ars:runningServices)
+        {
+            String className = ars.service.getClassName();
+            if(className.equals("com.app.hugh.androidphonemanager.Service.NumberLocationService"))
+            {
+                cb_setting_switch.setChecked(true);
+            }
+            else
+            {
+                cb_setting_switch.setChecked(true);
+            }
+        }
     }
 
     public void settoastlocation(View view)
