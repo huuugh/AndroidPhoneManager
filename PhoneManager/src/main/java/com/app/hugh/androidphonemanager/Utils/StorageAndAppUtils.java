@@ -70,6 +70,7 @@ public class StorageAndAppUtils
             boolean isSystem;
             boolean isSDCARD;
 
+            String packagename=mAI.packageName;
             String lable = mAI.loadLabel(packageManager).toString();
             Drawable icon = mAI.loadIcon(packageManager);
 
@@ -93,7 +94,7 @@ public class StorageAndAppUtils
                 isSDCARD=false;
             }
 
-            AppInfo appInfo = new AppInfo(lable,icon,isSDCARD,isSystem);
+            AppInfo appInfo = new AppInfo(lable,icon,isSDCARD,isSystem,packagename);
 
             AppInfoList.add(appInfo);
         }

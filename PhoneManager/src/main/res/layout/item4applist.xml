@@ -28,5 +28,14 @@
             android:layout_below="@id/tv_applistitem_lable"
             android:id="@+id/tv_applistitem_location"/>
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/iv_applistitem_lock"/>
     </RelativeLayout>
+<!--
+    android:src="@android:drawable/ic_lock_lock"
+-->
 </LinearLayout>

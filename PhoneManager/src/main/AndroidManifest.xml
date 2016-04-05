@@ -10,6 +10,8 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
 
     <application
         android:name=".Application.DataShareApplication"
@@ -87,7 +89,14 @@
             android:exported="true" />
 
         <activity android:name=".Activity.SetNumLocationShowActivity" />
-        <activity android:name=".Activity.AppManagerActivity"></activity>
+        <activity android:name=".Activity.AppManagerActivity" />
+
+        <provider
+            android:name=".Provider.LockedAppProvider"
+            android:authorities="com.hugh.lockedapp" />
+
+        <activity android:name=".Activity.CleanCacheActivity" />
+        <activity android:name=".Activity.AntiVirusActivity"></activity>
     </application>
 
 </manifest>

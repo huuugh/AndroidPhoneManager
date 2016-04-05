@@ -122,14 +122,14 @@ public class HomeActivity extends ActionBarActivity {
                     break;
                 case 4:
                     Toast.makeText(HomeActivity.this, "流量统计", Toast.LENGTH_SHORT).show();
-
                     break;
                 case 5:
                     Toast.makeText(HomeActivity.this, "手机杀毒", Toast.LENGTH_SHORT).show();
-
+                    startActivity(new Intent(HomeActivity.this, AntiVirusActivity.class));
                     break;
                 case 6:
                     Toast.makeText(HomeActivity.this, "缓存清理", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(HomeActivity.this, CleanCacheActivity.class));
                     break;
                 case 7:
                     Toast.makeText(HomeActivity.this, "高级工具", Toast.LENGTH_SHORT).show();
