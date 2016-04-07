@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
     <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
 
     <application
         android:name=".Application.DataShareApplication"
@@ -62,7 +63,7 @@
         </receiver>
 
         <service android:name=".Service.GetLocation" />
-
+        <service android:name=".Service.BlackListService"/>
         <!-- 为了获取设备权限 -->
         <!-- name为一个receiver类，description和lable在value里面定义，resource在res的xml文件夹下 -->
         <receiver
@@ -79,7 +80,17 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".Activity.BaseActivity" />
+        <receiver android:name=".Widget.MyAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/example_appwidget_info" />
+        </receiver>
+
+        <activity android:name=".Activity.BaseActivity"/>
         <activity android:name=".Activity.AdvanceToolsActivity" />
         <activity android:name=".Activity.NumberLocationActivity" />
 
@@ -96,7 +107,9 @@
             android:authorities="com.hugh.lockedapp" />
 
         <activity android:name=".Activity.CleanCacheActivity" />
-        <activity android:name=".Activity.AntiVirusActivity"></activity>
+        <activity android:name=".Activity.AntiVirusActivity" />
+        <activity android:name=".Activity.TelephonyActivity"></activity>
+        <activity android:name=".Activity.ProcessManagerActivity"/>
     </application>
 
 </manifest>

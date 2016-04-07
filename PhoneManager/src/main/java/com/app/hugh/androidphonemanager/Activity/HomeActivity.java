@@ -110,7 +110,7 @@ public class HomeActivity extends ActionBarActivity {
 
                 case 1:
                     Toast.makeText(HomeActivity.this, "通信卫士", Toast.LENGTH_SHORT).show();
-
+                    startActivity(new Intent(HomeActivity.this,TelephonyActivity.class));
                     break;
                 case 2:
                     Toast.makeText(HomeActivity.this, "软件管理", Toast.LENGTH_SHORT).show();
@@ -118,7 +118,7 @@ public class HomeActivity extends ActionBarActivity {
                     break;
                 case 3:
                     Toast.makeText(HomeActivity.this, "进程管理", Toast.LENGTH_SHORT).show();
-
+                    startActivity(new Intent(HomeActivity.this, ProcessManagerActivity.class));
                     break;
                 case 4:
                     Toast.makeText(HomeActivity.this, "流量统计", Toast.LENGTH_SHORT).show();

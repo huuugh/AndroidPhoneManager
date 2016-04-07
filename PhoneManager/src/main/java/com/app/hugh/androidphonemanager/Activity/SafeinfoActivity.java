@@ -8,17 +8,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.app.hugh.androidphonemanager.Application.DataShareApplication;
 import com.app.hugh.androidphonemanager.R;
+import com.app.hugh.androidphonemanager.Service.BlackListService;
 import com.app.hugh.androidphonemanager.Service.GetLocation;
 
 public class SafeinfoActivity extends ActionBarActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-        /*在这里开启更新位置的服务*/
-        this.startService(new Intent(this,GetLocation.class));
-
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_safeinfo);
         ActionBar actionBar = getSupportActionBar();

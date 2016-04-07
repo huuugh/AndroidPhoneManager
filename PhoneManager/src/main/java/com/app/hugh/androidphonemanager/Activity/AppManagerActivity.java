@@ -50,6 +50,8 @@ public class AppManagerActivity extends ActionBarActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appmanager);
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         SystemApplist=new ArrayList();
         UserApplist=new ArrayList();

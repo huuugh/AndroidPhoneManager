@@ -40,6 +40,18 @@
         android:layout_marginBottom="3dp"
         android:layout_marginTop="1dp"/>
 
+    <com.app.hugh.androidphonemanager.CustomizeView.SettingItem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_setting_pagetitle"
+        SettingItem:ItemName="黑名单拦截服务"
+        SettingItem:ItemState_ON="开启服务"
+        SettingItem:ItemState_OFF="关闭服务"
+        SettingItem:Key="ShowNumLocation"
+        android:id="@+id/item_setting_blacklistservice"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="1dp"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

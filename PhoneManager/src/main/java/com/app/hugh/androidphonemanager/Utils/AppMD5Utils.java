@@ -34,7 +34,6 @@ public class AppMD5Utils
             {
                 int i = b & 0xff;
                 String hexString = Integer.toHexString(i);
-                Log.e("hexString", hexString);//注释
                 if(hexString.length()==1)
                 {
                     result.append(0);

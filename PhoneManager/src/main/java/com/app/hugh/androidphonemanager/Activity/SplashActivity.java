@@ -21,6 +21,8 @@ import android.widget.Toast;
 
 import com.app.hugh.androidphonemanager.Application.DataShareApplication;
 import com.app.hugh.androidphonemanager.R;
+import com.app.hugh.androidphonemanager.Service.BlackListService;
+import com.app.hugh.androidphonemanager.Service.GetLocation;
 import com.app.hugh.androidphonemanager.Service.NumberLocationService;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -55,9 +57,20 @@ public class SplashActivity extends ActionBarActivity {
         /*隐藏ActionBar*/
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+
+       /* *//*在这里开启更新位置的服务*//*
+        if ("true".equals(DataShareApplication.getdata("ShowNumLocation"))||DataShareApplication.getdata("ShowNumLocation")==null)
+        {
+            this.startService(new Intent(this,GetLocation.class));
+        }
+        *//*开启黑名单服务*//*
+        if ("true".equals(DataShareApplication.getdata("blacklistservice"))||DataShareApplication.getdata("ShowNumLocation")==null)
+        {
+            this.startService(new Intent(this,BlackListService.class));
+        }*/
+
         /*取出服务器地址*/
         path=DataShareApplication.path;
-
         tv_splash_version = (TextView) findViewById(R.id.tv_splash_version);
         getCurrentVersion();
         if(DataShareApplication.sp.getBoolean("AutoUpdate",true))
@@ -69,18 +82,19 @@ public class SplashActivity extends ActionBarActivity {
         {
             waitmoment();
         }
-        copydb();
+        copydb("naddress.db");
+        copydb("antivirus.db");
     }
     /*将assets目录下的数据库复制到data/data/pakagename/目录下*/
-    private void copydb() {
+    private void copydb(String dbname) {
         try {
 
-            File db=new File("data/data/"+getPackageName()+"/location.db");
+            File db=new File("data/data/"+getPackageName()+"/"+dbname);
             if (db.exists())
                 return;
 
-            final AssetManager assets = getAssets();
-            final InputStream open = assets.open("naddress.db");
+            AssetManager assets = getAssets();
+            InputStream open = assets.open(dbname);
             FileOutputStream fos = new FileOutputStream(db);
 
             byte[] bytes= new byte[1024];
@@ -278,18 +292,11 @@ public class SplashActivity extends ActionBarActivity {
         @Override
         public void onSuccess(int i, Header[] headers, byte[] bytes)
         {
-
-            /*添加进度条*/
-
-
             file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/anzhistore.apk");
             try {
                 FileOutputStream fos = new FileOutputStream(file);
                 fos.write(bytes);
                 fos.close();
-
-                /*此处取消进度条*/
-               // pd.cancel();
 
                 /*此处调用installApk()方法安装下载的新版的应用*/
                 installApk();
@@ -310,15 +317,6 @@ public class SplashActivity extends ActionBarActivity {
         public void onProgress(long bytesWritten, long totalSize)
         {
             super.onProgress(bytesWritten, totalSize);
-
-            /*pd = new ProgressDialog(SplashActivity.this);
-            pd.setMessage("正在下载");
-            pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);// 设置水平进度条
-            pd.setCancelable(false);// 设置是否可以通过点击Back键取消
-            pd.setCanceledOnTouchOutside(false);
-            pd.setProgress((int)bytesWritten);
-            pd.setMax((int)totalSize);
-            pd.show();*/
         }
 
         @Override
